@@ -1,6 +1,8 @@
 #ifndef _SORT_H_
 #define _SORT_H_
 
+#include "Def.h"
+
 
 
 /* PS:
@@ -30,10 +32,10 @@ void Shell_Sort(Arr &A);
 2.快速排序
 
 \*******************/
-
-
-
-
+//冒泡排序
+void Bubble_Sort(Arr &A);
+//快速排序
+void Quick_Sort(Arr &A);
 
 
 
