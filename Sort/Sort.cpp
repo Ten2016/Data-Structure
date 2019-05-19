@@ -71,11 +71,44 @@ void Bubble_Sort(Arr &A){
 }
 
 //快速排序
+int Partition(Arr &A,int low,int high){
+	int p=A.elem[low];	//选择第一个作为划分点
+	while(low<high){
+		while(low<high && A.elem[high]>=p)	high--;
+		A.elem[low]=A.elem[high];
+		while(low<high && A.elem[low]<=p)	low++;
+		A.elem[high]=A.elem[low];
+	}
+	A.elem[low]=p;
+	return low;
+}
+void Quick(Arr &A,int low,int high){
+	if(low<high){
+		int n=Partition(A,low,high);
+		Quick(A,low,n-1);	//对左半边排序
+		Quick(A,n+1,high);	//对右半边排序
+	}
+}
 void Quick_Sort(Arr &A){
-
-
+	Quick(A,1,A.len);
 }
 
+
+//简单选择排序
+void Select_Sort(Arr &A){
+	int i,k,tmp;
+	for(i=1;i<A.len;i++){
+		k=i;
+		for(int j=i+1;j<=A.len;j++)
+			if(A.elem[k]>A.elem[j])
+				k=j;
+		if(k!=i){
+			tmp=A.elem[i];
+			A.elem[i]=A.elem[k];
+			A.elem[k]=tmp;
+		}
+	}
+}
 
 
 

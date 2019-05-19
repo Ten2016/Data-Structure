@@ -12,9 +12,10 @@ typedef struct{
   int len;
 }Arr;
 
-void Create(Arr &A,Arr &B,int argc,char **argv);
-void Print(Arr &A);
-int Compare(Arr &A,Arr &B);
+void Create(Arr &A,int argc,char **argv);
+void Copy(Arr A,Arr &B);
+void Print(Arr A);
+int Compare(Arr A,Arr B);
 void Destory(Arr &A);
 
 #endif

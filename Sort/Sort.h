@@ -35,13 +35,20 @@ void Shell_Sort(Arr &A);
 //冒泡排序
 void Bubble_Sort(Arr &A);
 //快速排序
+int Partition(Arr &A,int low,int high);
+void Quick(Arr &A,int low,int high);
 void Quick_Sort(Arr &A);
 
 
 
+/******选择排序******\
+1.冒泡排序
+2.快速排序
 
-
-
+\*******************/
+//简单选择排序
+void Select_Sort(Arr &A);
+//堆排序
 
 
 
