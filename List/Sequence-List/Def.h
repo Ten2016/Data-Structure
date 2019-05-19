@@ -2,7 +2,10 @@
 #define _DEF_H_
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+
+#define SIZE 100
 
 typedef struct SLNode{
 	int elem;

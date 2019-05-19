@@ -22,13 +22,14 @@ int main(int argc,char **argv){
 
 	SLinkList SL;
 	Init(SL);
-	if(strcmp("head",mode)==0)
-		Create_Head(SL,dmount);
-	else
+	Create_Head(SL,dmount);
+	Print(SL);
+	if(strcmp("tail",mode)==0){
+		Destory(SL);
 		Create_Tail(SL,dmount);
+	}
 	printf("单链表初始状态：\n");
 	Print(SL);
-
 	char c;int num;
 	printf("输入操作指令[#退出]:\n");
 	while(1){
