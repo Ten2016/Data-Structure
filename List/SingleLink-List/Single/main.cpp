@@ -30,14 +30,14 @@ int main(int argc,char **argv){
 	}
 	printf("单链表初始状态：\n");
 	Print(SL);
-	char c;int num;
+	char c;int index,num;
 	printf("输入操作指令[#退出]:\n");
 	while(1){
 		scanf("%c",&c);
 		switch(c){
 			case '#':return 0;
 			case 'i':
-			case 'I':scanf("%d",&num);Insert_Index(SL,num);Print(SL);break;
+			case 'I':scanf("%d%d",&index,&num);Insert_Index(SL,index,num);Print(SL);break;
 			case 'f':scanf("%d",&num);Find_Elem(SL,num);Print(SL);break;
 			case 'F':scanf("%d",&num);Find_Index(SL,num);Print(SL);break;
 			case 'd':

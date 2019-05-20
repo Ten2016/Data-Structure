@@ -16,9 +16,11 @@ void Init(SLinkList &SL);
 void Create_Head(SLinkList &SL,int n);
 void Create_Tail(SLinkList &SL,int n);
 void Print(SLinkList SL);
-void Insert_Index(SLinkList &SL,int index);
-void Find_Elem(SLinkList SL,int elem);
-void Find_Index(SLinkList SL,int index);
+int Insert_Index(SLinkList &SL,int index,int elem);
+int Find_Elem(SLinkList SL,int elem);
+int Find_Index(SLinkList SL,int index);
+int Delete_Index(SLinkList &SL,int index);
+int Delete_Elem(SLinkList &SL,int elem);
 void Destory(SLinkList &SL);
 
 

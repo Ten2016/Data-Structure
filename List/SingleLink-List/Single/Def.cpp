@@ -49,17 +49,61 @@ void Print(SLinkList SL){
 	printf("\n");
 }
 
-void Insert_Index(SLinkList &SL,int index){
+
+int Length(SLinkList SL){
+	SLinkList p;
+	int n=0;
+	p=SL->next;
+	while(p){
+		n++;
+		p=p->next;
+	}
+	return n;
+}
+	
+
+int Insert_Index(SLinkList &SL,int index,int elem){
+	if(index<1||index>(Length(SL)+1))
+		return -1;
+	SLinkList p;
+	SLNode *s;
+	p=SL;
+	index--;
+	while(index--)	p=p->next;
+	s = new SLNode;
+	s->elem=elem;
+	s->next=p->next;
+	p->next=s;
+}
+
+int Find_Elem(SLinkList SL,int elem){
+	SLinkList p;
+	int index=0;
+	p=SL->next;
+	while(p){
+		index++;
+		if(p->elem==elem)
+			return index;
+		p=p->next;
+	}
+	return -1;
+}
+
+int Find_Index(SLinkList SL,int index){
+	if(index<1||index>Length(SL))
+		return -1;
+	SLinkList p;
+	p=SL;
+	while(index--)	p=p->next;
+	return p->elem;
+}
+int Delete_Index(SLinkList &SL,int index){
 
 
 }
 
-void Find_Elem(SLinkList SL,int elem){
-
-
-}
-
-void Find_Index(SLinkList SL,int index){
+int Delete_Elem(SLinkList &SL,int elem){
+	
 
 
 }
