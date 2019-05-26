@@ -1,75 +1,52 @@
 #include "Def.h"
 
-void Init(SLinkList &SL){
-	SL = new SLNode ;
-	SL->next=NULL;
-}
-
-void Create_Head(SLinkList &SL,int n){
-	SLNode *p;
+void Create(SqList &L,int n){
+	L.elem = new int[n];
+	if(L.elem==NULL)
+		printf("error");
+	L.length=n;
 	srand((unsigned)time(NULL));
-	while(n--){
-		p = new SLNode;
-		if(p==NULL){
-			printf("memory error.");
-			exit(1);
-		}
-		p->elem=rand()%SIZE;
-		p->next=SL->next;
-		SL->next=p;
+	for(int i=0;i<n;i++){
+		L.elem[i]=rand()%SIZE;
 	}
 }
 
-void Create_Tail(SLinkList &SL,int n){
-	SLNode *p,*s;
-	srand((unsigned)time(NULL));
-	while(n--){
-		p = new SLNode;
-		if(p==NULL){
-			printf("memory error.");
-			exit(1);
-		}
-		p->elem=rand()%SIZE;
-		s=SL;
-		while(s->next)
-			s=s->next;
-		s->next=p;
-		p->next=NULL;
-	}
-}
-
-
-void Print(SLinkList SL){
-	SLNode *p;
-	p=SL->next;
-	while(p){
-		printf("%d\t",p->elem);
-		p=p->next;
+void Print(SqList L){
+	for(int i=0;i<L.length;i++){
+		printf("%d\t",L.elem[i]);
 	}
 	printf("\n");
 }
 
-void Insert_Index(SLinkList &SL,int index){
-
-
-}
-
-void Find_Elem(SLinkList SL,int elem){
-
-
-}
-
-void Find_Index(SLinkList SL,int index){
-
-
-}
-
-void Destory(SLinkList &SL){
-	SLNode *p;
-	p=SL->next;
-	while(p){
-		delete SL;
-		SL=p;
-		p=p->next;
+int Find_Elem(SqList L,int elem){
+	for(int i=0;i<L.length;i++){
+		if(L.elem[i]==elem)
+			return i+1;
 	}
+	return -1;
+}
+
+int Find_Index(SqList L,int &index){
+	if(index<1||index>L.length)
+		return -1;
+	index=L.elem[index-1];
+	return 1;
+}
+
+int Insert(SqList &L,int elem,int index){
+;
+}
+
+int Delete_Elem(SqList &L,int elem){
+;
+}
+
+
+int Delete_Index(SqList &L,int &index){
+;
+}
+
+void Destory(SqList &L){
+	delete [] L.elem;
+	L.length=0;
 }
