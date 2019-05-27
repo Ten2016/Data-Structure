@@ -12,12 +12,24 @@ void Init(SqList &L,int n){
 
 void Create(SqList &L,int n){
 	if(n>L.tlen){
-		printf("too big.\n");
+		printf("create size too big.\n");
 		return ;
 	}
 	srand((unsigned)time(NULL));
 	for(int i=0;i<n;i++){
 		L.elem[i]=rand()%SIZE;
+	}
+	L.length=n;
+}
+
+void Create_p(SqList &L,int n,int m){
+	if(n>L.tlen){
+		printf("create size too big.\n");
+		return ;
+	}
+	srand((unsigned)time(NULL));
+	for(int i=0;i<n;i++){
+		L.elem[i]=rand()%m;
 	}
 	L.length=n;
 }
@@ -87,4 +99,28 @@ int Delete_Index(SqList &L,int &index){
 void Destory(SqList &L){
 	delete [] L.elem;
 	L.length=0;
+}
+
+void Sort(SqList &L,int low,int high){
+	if(low<high){
+
+		//partition
+		int tlow=low;		//副本low
+		int thigh=high;		//副本high
+		int p=L.elem[tlow];	//取第一个元素归位
+		while(tlow<thigh){
+			while(tlow<thigh && L.elem[thigh]>=p)
+				thigh--;
+			L.elem[tlow]=L.elem[thigh];
+			while(tlow<thigh && L.elem[tlow]<=p)
+				tlow++;
+			L.elem[thigh]=L.elem[tlow];
+		}
+		L.elem[tlow]=p;
+		//partition finish
+
+		Sort(L,low,tlow-1);
+		Sort(L,tlow+1,high);
+	}
+
 }
