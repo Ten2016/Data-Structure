@@ -9,10 +9,12 @@
 #define SIZE 100
 
 typedef struct{
-	int *elem;
-	int length;
+	int *elem;	//元素
+	int length;	//当前长度
+	int tlen;	//总长度
 }SqList;
 
+void Init(SqList &L,int n);
 void Create(SqList &L,int n);
 void Print(SqList L);
 int Insert(SqList &L,int elem,int index);
