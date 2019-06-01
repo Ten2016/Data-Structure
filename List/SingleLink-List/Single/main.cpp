@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Def.h"
+#include "Def.cpp"
 
 int main(int argc,char **argv){
 	int dmount;	//创建时默认数据个数
@@ -30,18 +30,31 @@ int main(int argc,char **argv){
 	}
 	printf("单链表初始状态：\n");
 	Print(SL);
-	char c;int index,num;
 	printf("输入操作指令[#退出]:\n");
+	char c;int index,num,res;
 	while(1){
 		scanf("%c",&c);
 		switch(c){
-			case '#':return 0;
 			case 'i':
-			case 'I':scanf("%d%d",&index,&num);Insert_Index(SL,index,num);Print(SL);break;
-			case 'f':scanf("%d",&num);Find_Elem(SL,num);Print(SL);break;
-			case 'F':scanf("%d",&num);Find_Index(SL,num);Print(SL);break;
-			case 'd':
-			case 'D':Destory(SL);printf("Destory sucessed.\n");break;
+			case 'I':scanf("%d%d",&index,&num);
+						Insert_Index(SL,index,num);
+						Print(SL);break;
+			case 'f':scanf("%d",&num);
+						res=Find_Elem(SL,num);
+						printf("%d\n",res);break;
+			case 'F':scanf("%d",&index);
+						res=Find_Index(SL,index);
+						printf("%d\n",res);break;
+			case 'd':scanf("%d",&num);
+						res=Delete_Elem(SL,num);
+						printf("%d\n",res);
+						Print(SL);break;
+			case 'D':scanf("%d",&index);
+						res=Delete_Index(SL,index);
+						printf("%d\n",res);
+						Print(SL);break;
+			case 'q':Destory(SL);
+						printf("Destory sucessed.\n");return 0;
 			default:break;
 		}
 	}

@@ -40,7 +40,7 @@ void Create_Tail(SLinkList &SL,int n){
 
 
 void Print(SLinkList SL){
-	SLNode *p;
+	SLinkList p;
 	p=SL->next;
 	while(p){
 		printf("%d\t",p->elem);
@@ -98,14 +98,35 @@ int Find_Index(SLinkList SL,int index){
 	return p->elem;
 }
 int Delete_Index(SLinkList &SL,int index){
-
-
+	if(index<1||index>Length(SL))
+		return -1;
+	SLinkList p,q;
+	int x;
+	p=SL;
+	index--;
+	while(index--)	p=p->next;
+	q=p->next;
+	p->next=q->next;
+	x=q->elem;
+	delete q;
+	return x;
 }
 
 int Delete_Elem(SLinkList &SL,int elem){
-	
-
-
+	SLinkList p,q;
+	int index=0;
+	p=SL;
+	while(p->next){
+		index++;
+		if(p->next->elem==elem){
+			q=p->next;
+			p->next=q->next;
+			delete q;
+			return index;
+		}
+		p=p->next;
+	}
+	return -1;
 }
 
 void Destory(SLinkList &SL){

@@ -26,4 +26,4 @@ que12.cpp|寻找主元素
 
 
 ---
-### By xyten
+###  By xyten

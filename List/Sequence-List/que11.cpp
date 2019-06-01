@@ -32,15 +32,15 @@ int Func1(SqList L1,SqList L2){
 		}
 	}
 	while(i<L1.length){
+		res=L1.elem[i];
 		if(i+j==n)
 			return res;
-		res=L1.elem[i];
 		i++;
 	}
 	while(j<L2.length){
+		res=L2.elem[j];
 		if(i+j==n)
 			return res;
-		res=L2.elem[j];
 		j++;
 	}
 }
