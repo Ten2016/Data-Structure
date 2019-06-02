@@ -39,6 +39,7 @@ int main(int argc,char **argv){
 			case 'I':scanf("%d%d",&index,&num);
 						Insert_Index(SL,index,num);
 						Print(SL);break;
+			case 'l':printf("Len:%d\n",Length(SL));break;
 			case 'f':scanf("%d",&num);
 						res=Find_Elem(SL,num);
 						printf("%d\n",res);break;
