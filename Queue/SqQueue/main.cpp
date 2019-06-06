@@ -6,7 +6,7 @@
 
 int main(){
 	SqCirQueue SCQ;
-	Init(SCQ,100);
+	Init(SCQ,5);
 	printf("输入操作指令[#退出]:\n");
 	char c;int x,y;
 	while(1){

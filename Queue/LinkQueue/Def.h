@@ -3,17 +3,19 @@
 
 typedef int Elem;
 typedef struct LQNode{
-	Elem *elem;
-	int front,rear;
-	int max;
-}SqCirQueue;
+	Elem e;
+	LQNode *next;
+}LQNode;
+typedef struct LinkQueue{
+	LQNode *front,*rear;
+}LinkQueue;
 
-void Init(SqCirQueue &SCQ,int max);
-int EnQueue(SqCirQueue &SCQ,Elem x);
-int DeQueue(SqCirQueue &SCQ,Elem &x);
-int IsEmpty(SqCirQueue SCQ);
-int IsFull(SqCirQueue SCQ);
-void Destory(SqCirQueue &SCQ);
+void Init(LinkQueue &LQ);	//带头节点
+int EnQueue(LinkQueue &LQ,Elem x);
+int DeQueue(LinkQueue &LQ,Elem &x);
+int IsEmpty(LinkQueue LQ);
+void Destory(LinkQueue &LQ);
+void Print(LinkQueue LQ);	//测试专用
 
 
 #endif

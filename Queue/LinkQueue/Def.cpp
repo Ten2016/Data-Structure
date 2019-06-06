@@ -1,49 +1,50 @@
 #include "Def.h"
 
-void Init(SqCirQueue &SCQ,int max){
-	SCQ.elem = new Elem[max];
-	SCQ.max=max;
-	SCQ.front=0;
-	SCQ.rear=0;
+void Init(LinkQueue &LQ){
+	LQ.front = new LQNode;
+	LQ.rear=LQ.front;
+	LQ.front->next=NULL;
 }
-int EnQueue(SqCirQueue &SCQ,Elem x){
-	if(SCQ.front==(SCQ.rear+1)%SCQ.max)
+int EnQueue(LinkQueue &LQ,Elem x){
+	LQNode *p;
+	p = new LQNode;
+	p->e=x;
+	p->next=NULL;
+	LQ.rear->next=p;
+	LQ.rear=p;
+}
+int DeQueue(LinkQueue &LQ,Elem &x){
+	if(IsEmpty(LQ))
 		return 0;
-	SCQ.elem[SCQ.rear]=x;
-	SCQ.rear++;
+	LQNode *p=LQ.front->next;
+	x=p->e;
+	LQ.front->next=p->next;
+	if(p==LQ.rear)
+		LQ.rear=LQ.front;
+	delete p;
 	return 1;
 }
-int DeQueue(SqCirQueue &SCQ,Elem &x){
-	if(SCQ.front==SCQ.rear)
-		return 0;
-	x=SCQ.elem[SCQ.front];
-	SCQ.front++;
-	return 1;
-}
-int IsEmpty(SqCirQueue SCQ){
-	if(SCQ.front==SCQ.rear)
+int IsEmpty(LinkQueue LQ){
+	if(LQ.front==LQ.rear)
 		return 1;
 	else
 		return 0;
 }
-int IsFull(SqCirQueue SCQ){
-	if(SCQ.front==(SCQ.rear+1)%SCQ.max)
-		return 1;
-	else
-		return 0;
-}
-void Destory(SqCirQueue &SCQ){
-	delete [] SCQ.elem;
-	SCQ.max=0;
+void Destory(LinkQueue &LQ){
+	LQNode *q=LQ.front;
+	while(q){
+		LQ.front=q->next;
+		delete q;
+		q=LQ.front;
+	}
+	LQ.front=LQ.rear=NULL;
 }
 
-void Print(SqCirQueue SCQ){	//测试专用
-	int len=(SCQ.rear-SCQ.front+SCQ.max)%SCQ.max;
-	int start=SCQ.front;
-	printf("Elem:\t");
-	for(int i=0;i<len;i++){
-		printf("%d\t",SCQ.elem[start]);
-		start=(start+1)%SCQ.max;
+void Print(LinkQueue LQ){	//测试专用
+	LQNode *p=LQ.front->next;
+	while(p){
+		printf("%d\t",p->e);
+		p=p->next;
 	}
 	printf("\n");
 }

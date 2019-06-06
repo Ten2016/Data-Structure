@@ -14,6 +14,6 @@ int DeQueue(SqCirQueue &SCQ,Elem &x);
 int IsEmpty(SqCirQueue SCQ);
 int IsFull(SqCirQueue SCQ);
 void Destory(SqCirQueue &SCQ);
-
+void Print(SqCirQueue SCQ);
 
 #endif
