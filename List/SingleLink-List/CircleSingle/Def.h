@@ -5,22 +5,33 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 100
+#define SIZE 50
 
-typedef struct SLNode{
-	int elem;
-	SLNode *next;
-}SLNode,*SLinkList;
+typedef int Elem;
+typedef struct SCLNode{
+	Elem elem;
+	SCLNode *next;
+}SCLNode;
+typedef struct SCLinkList{
+	SCLNode *front;
+	SCLNode *rear;
+}SCLinkList;
 
-void Init(SLinkList &SL);
-void Create_Head(SLinkList &SL,int n);
-void Create_Tail(SLinkList &SL,int n);
-void Print(SLinkList SL);
-void Insert_Index(SLinkList &SL,int index);
-void Find_Elem(SLinkList SL,int elem);
-void Find_Index(SLinkList SL,int index);
-void Destory(SLinkList &SL);
 
+
+void Init(SCLinkList &SCL);
+void Create_Head(SCLinkList &SCL,int n);
+void Create_Tail(SCLinkList &SCL,int n);
+void Print(SCLinkList SCL,int n);
+int Print_Head(SCLinkList SCL);
+int Print_Tail(SCLinkList SCL);
+void Insert_Index(SCLinkList &SCL,int index,int n);
+void Find_Elem(SCLinkList SCL,Elem elem);
+void Find_Index(SCLinkList SCL,int index);
+void Delete_Elem(SCLinkList &SCL,int elem);
+void Delete_Index(SCLinkList &SCL,int index);
+void Destory(SCLinkList &SCL);
 
 
 #endif
+

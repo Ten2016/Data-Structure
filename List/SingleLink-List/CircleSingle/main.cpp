@@ -2,50 +2,50 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Def.h"
+#include "Def.cpp"
 
-int main(int argc,char **argv){
-	int dmount;	//创建时默认数据个数
-	char mode[10];	//创建方式
-	if(argc==1){
-		strcpy(mode,"head");
-		dmount=10;
-	}
-	else if(argc==2){
-		strcpy(mode,argv[1]);
-		dmount=10;
-	}
-	else{
-		strcpy(mode,argv[1]);
-		dmount=atoi(argv[2]);
-	}
+int main() {
 
-	SLinkList SL;
-	Init(SL);
-	Create_Head(SL,dmount);
-	Print(SL);
-	if(strcmp("tail",mode)==0){
-		Destory(SL);
-		Create_Tail(SL,dmount);
-	}
-	printf("单链表初始状态：\n");
-	Print(SL);
-	char c;int num;
+    SCLinkList SCL;
+    Init(SCL);
+    Create_Head(SCL,10);
+    Create_Tail(SCL,10);
+    printf("Print:\n");
+    Print(SCL,24);
 	printf("输入操作指令[#退出]:\n");
-	while(1){
+    int num,index;
+    char c;
+	while(1) {
 		scanf("%c",&c);
-		switch(c){
-			case '#':return 0;
+		switch(c) {
 			case 'i':
-			case 'I':scanf("%d",&num);Insert_Index(SL,num);Print(SL);break;
-			case 'f':scanf("%d",&num);Find_Elem(SL,num);Print(SL);break;
-			case 'F':scanf("%d",&num);Find_Index(SL,num);Print(SL);break;
+			case 'I':
+				scanf("%d",&num);Insert_Index(SCL,index,num);
+				Print(SCL,50);break;
+			case 'f':
+				scanf("%d",&num);Find_Elem(SCL,num);
+				Print(SCL,50);break;
+			case 'F':
+				scanf("%d",&index);Find_Index(SCL,index);
+				Print(SCL,50);break;
 			case 'd':
-			case 'D':Destory(SL);printf("Destory sucessed.\n");break;
-			default:break;
+				scanf("%d",&num);Delete_Elem(SCL,num);
+				Print(SCL,50);break;
+			case 'D':
+				scanf("%d",&index);Delete_Index(SCL,index);
+				Print(SCL,50);break;
+			case 'p':
+				Print_Head(SCL);break;
+			case 'P':
+				Print_Tail(SCL);break;
+			case 'q':
+				Destory(SCL);printf("Destory sucessed.\n");
+				return 0;
+			default:
+				break;
 		}
 	}
 	return 0;
 }
-		
-	
+
+

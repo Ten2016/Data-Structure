@@ -1,4 +1,4 @@
-## 单链表  SingleLink
+﻿## 单链表  SingleLink
 
 ---
 
@@ -13,5 +13,4 @@ a.out|可执行程序
 ------
 |问题|描述|
 |:---|:---|
-que1.cpp|删除最小值
-que2.cpp|逆置顺序表
+que1.cpp|
