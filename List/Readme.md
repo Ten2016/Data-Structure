@@ -6,9 +6,9 @@
 
 <br>
 
-|目录|说明|完成情况|链接|
-|:----|:----|:-------:|:----|
-Sequence-List|顺序表|OK|[Sequence-List](/List/Sequence-List)
-SingleLink-List|单链表|OK|[SingleLink-List](/List/SingleLink-List)
-DoubleLink-List|双链表|OK|[DoubleLink-List](/Link/DoubleLink-List)
+|目录|说明|完成情况
+|:----|:----|:-------:|
+Sequence-List|顺序表|OK
+SingleLink-List|单链表|OK
+DoubleLink-List|双链表|OK
 
