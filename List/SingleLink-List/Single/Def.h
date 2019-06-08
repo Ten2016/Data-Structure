@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 100
+#define SIZE 50
 
 typedef struct SLNode{
 	int elem;
