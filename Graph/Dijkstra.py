@@ -1,5 +1,5 @@
 '''
-    最短路径算法: Floyd
+    最短路径算法: 
 '''
 
 import numpy as np
