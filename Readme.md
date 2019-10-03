@@ -16,6 +16,7 @@ Sort|排序|[Sort](/Sort)|
 String|字符串|[String](/String)|OK
 Encode|编码|[Encode](/Encode)|OK
 Array|数组|[Array](/Array)|
+HIT-test|哈工大真题|[HIT-test](/HIT-test)|CNT
 
 <br>
 <br>
