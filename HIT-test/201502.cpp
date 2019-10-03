@@ -1,11 +1,11 @@
-/*
+﻿/*
     给定一颗二叉树
     1.查找值为X的结点,返回结点,Search(...)
     2.返回X所在的层数,Level(...)
 
 */
 
-#include "Init.cpp"
+#include "Init_Tree.cpp"
 
 pBTree Search(pBTree BT,int k){
     pBTree tmp=NULL;
@@ -44,14 +44,15 @@ int main(){
     Print(BT);
 
     //test
+    cout<<"node\tlevel"<<endl;
     p=Search(BT,4);
-    cout<<p->elem<<"  "<<Level(BT,4)<<endl;
+    cout<<p->elem<<"\t"<<Level(BT,4)<<endl;
     p=Search(BT,8);
-    cout<<p->elem<<"  "<<Level(BT,8)<<endl;
+    cout<<p->elem<<"\t"<<Level(BT,8)<<endl;
     p=Search(BT,12);
-    cout<<p->elem<<"  "<<Level(BT,12)<<endl;
+    cout<<p->elem<<"\t"<<Level(BT,12)<<endl;
     p=Search(BT,10);
-    cout<<p->elem<<"  "<<Level(BT,10)<<endl;
+    cout<<p->elem<<"\t"<<Level(BT,10)<<endl;
 
 
 
