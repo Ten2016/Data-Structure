@@ -60,10 +60,6 @@ void Order4(pBTree BTree){
         Queue[front]=BTree;
         front=(front+1)%20;
     }
-    else{
-        /* code */
-        return ;
-    }
     while(front!=rear){
         p=Queue[rear];          //dequeue
         rear=(rear+1)%20;
