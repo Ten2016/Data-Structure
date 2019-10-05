@@ -1,11 +1,10 @@
-/*
+﻿/*
     1.判断二叉树是否为完全二叉树
     2.输出从右到左第K个结点
 
 */
 
 #include "Init_tree.cpp"
-using namespace std;
 
 //use level order
 int Is_FullBinTree(pBTree BT){
