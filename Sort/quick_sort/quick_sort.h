@@ -25,14 +25,6 @@ extern "C" {
  */
 int quick_sort(int arr[], int len);
 
-/**
- * @brief 打印数组
- * 
- * @param arr 待打印数组
- * @param len 长度
- */
-void print(int arr[], int len);
-
 
 #ifdef __cplusplus
 }
