@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "quick_sort.h"
+#include "quick_sort/quick_sort.h"
 
 /**
  * @brief 打印数组
@@ -80,6 +80,7 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
+    int cal_cnt = 0;
     for (int i = 1; i <= run_count; i += 100) {
 
         build(arr_raw, i);
@@ -90,9 +91,11 @@ int main(int argc, char **argv) {
 
         check(arr_qs, arr_raw, i);
 
+        cal_cnt++;
     }
 
     printf("run time: %u\n", time(NULL) - curr_time);
+    printf("cal cnt: %d\n", cal_cnt);
 
     free(arr_raw);
     free(arr_qs);
