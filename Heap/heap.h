@@ -33,7 +33,8 @@ enum HEAP_ERR_CODE {
     HEAP_ERR_SUCCESS = 0,
     HEAP_ERR_PARAMETER_INVALID,
     HEAP_ERR_MEMORY_ERROR,
-    HEAP_ERR_CAPACITY_FULL
+    HEAP_ERR_CAPACITY_FULL,
+    HEAP_ERR_DATA_EMPTY
 };
 
 
@@ -41,7 +42,7 @@ enum HEAP_ERR_CODE {
  * @brief 堆元素比较函数
  * 
  */
-typedef long (*cmp_func)(void *a, void *b);
+typedef long (*heap_cmp_func)(void *a, void *b);
 
 
 /**
@@ -52,14 +53,15 @@ typedef long (*cmp_func)(void *a, void *b);
  * @param b 堆元素
  * @return long 
  */
-long heap_cmp_func_dft(void *a, void *b) {
+static long heap_cmp_func_dft(void *a, void *b)
+{
     return (long)a - (long)b;
 }
 
 
-heap_t *heap_create(cmp_func cmp);
+heap_t *heap_create(heap_cmp_func cmp);
 
-heap_t *heap_create_from_data(cmp_func cmp, void **data);
+heap_t *heap_create_from_data(heap_cmp_func cmp, void **data);
 
 int heap_push(heap_t *hp, void *data);
 
@@ -67,7 +69,9 @@ int heap_pop(heap_t *hp, void **data);
 
 int heap_top(heap_t *hp, void **data);
 
-int heap_count(heap_t *hp);
+long heap_size(heap_t *hp);
+
+long heap_capacity(heap_t *hp);
 
 void heap_destroy(heap_t *hp);
 
