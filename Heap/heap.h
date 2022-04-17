@@ -37,6 +37,10 @@ enum HEAP_ERR_CODE {
     HEAP_ERR_DATA_EMPTY
 };
 
+enum HEAP_PRINT_FLAF {
+    HEAP_PRINT_NULL = 0,
+    HEAP_PRINT_ENDLINE = 1,
+};
 
 /**
  * @brief 堆元素比较函数
@@ -44,6 +48,12 @@ enum HEAP_ERR_CODE {
  */
 typedef long (*heap_cmp_func)(void *a, void *b);
 
+
+/**
+ * @brief 遍历元素回调函数
+ * 
+ */
+typedef void (*heap_walk_func)(void *e, int flag);
 
 /**
  * @brief 堆元素默认比较函数
@@ -69,12 +79,13 @@ int heap_pop(heap_t *hp, void **data);
 
 int heap_top(heap_t *hp, void **data);
 
-long heap_size(heap_t *hp);
+long heap_get_size(heap_t *hp);
 
-long heap_capacity(heap_t *hp);
+long heap_get_capacity(heap_t *hp);
 
 void heap_destroy(heap_t *hp);
 
+void heap_walk(heap_t *hp, heap_walk_func walk);
 
 #ifdef __cplusplus
 }
