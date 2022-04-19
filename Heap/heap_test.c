@@ -128,12 +128,18 @@ void heap_sort_test(heap_cmp_func cmp_func)
     printf("\n");
 
     // 排序
-    heap_sort(arr, cnt, sizeof(int), cmp_func);
+    heap_sort(arr, cnt, cmp_func);
 
     // 检查
     for(int i = 0; i < cnt; i++) {
         printf("%d ", arr[i]);
         //  检查排序结果
+        if (i) {
+            if (cmp_func(&arr[i-1], &arr[i]) > 0) {
+                printf("\nerr: %d %d\n", arr[i-1], arr[i]);
+                break;
+            }
+        }
     }
     printf("\n");
 
